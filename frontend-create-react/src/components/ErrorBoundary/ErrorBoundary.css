@@ -1,0 +1,166 @@
+.error-boundary {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  padding: 2rem;
+}
+
+.error-boundary-content {
+  background: white;
+  border-radius: 16px;
+  padding: 3rem 2rem;
+  max-width: 600px;
+  text-align: center;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+}
+
+.error-icon {
+  font-size: 4rem;
+  margin-bottom: 1.5rem;
+  animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+}
+
+.error-boundary h1 {
+  color: #2c3e50;
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  font-weight: 700;
+}
+
+.error-message {
+  color: #7f8c8d;
+  font-size: 1.1rem;
+  margin-bottom: 2rem;
+  line-height: 1.6;
+}
+
+.error-details {
+  margin: 2rem 0;
+  text-align: left;
+}
+
+.error-details summary {
+  cursor: pointer;
+  color: #e74c3c;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  user-select: none;
+}
+
+.error-details summary:hover {
+  color: #c0392b;
+}
+
+.error-stack {
+  background: #2c3e50;
+  color: #ecf0f1;
+  padding: 1rem;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  overflow-x: auto;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+.error-actions {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.btn {
+  padding: 0.75rem 2rem;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: none;
+}
+
+.btn-primary {
+  background: linear-gradient(145deg, #3498db, #2980b9);
+  color: white;
+  box-shadow: 0 4px 15px rgba(52, 152, 219, 0.3);
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(52, 152, 219, 0.4);
+}
+
+.btn-secondary {
+  background: #ecf0f1;
+  color: #2c3e50;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.btn-secondary:hover {
+  background: #bdc3c7;
+  transform: translateY(-2px);
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+  .error-boundary-content {
+    background: #2c3e50;
+    color: #ecf0f1;
+  }
+
+  .error-boundary h1 {
+    color: #ecf0f1;
+  }
+
+  .error-message {
+    color: #bdc3c7;
+  }
+
+  .btn-secondary {
+    background: #34495e;
+    color: #ecf0f1;
+  }
+
+  .btn-secondary:hover {
+    background: #4a5f7a;
+  }
+}
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+  .error-boundary-content {
+    padding: 2rem 1.5rem;
+  }
+
+  .error-icon {
+    font-size: 3rem;
+  }
+
+  .error-boundary h1 {
+    font-size: 1.5rem;
+  }
+
+  .error-message {
+    font-size: 1rem;
+  }
+
+  .error-actions {
+    flex-direction: column;
+  }
+
+  .btn {
+    width: 100%;
+  }
+}
