@@ -70,7 +70,7 @@ const Register = () => {
     setLoading(true);
 
     try {
-      const response = await authAPI.register(
+      await authAPI.register(
         formData.name,
         formData.email,
         formData.password,
@@ -189,19 +189,6 @@ const Register = () => {
             )}
           </div>
 
-          <div className="form-group">
-            <label htmlFor="role">Role</label>
-            <select
-              id="role"
-              name="role"
-              value={formData.role}
-              onChange={handleChange}
-            >
-              <option value="user">User</option>
-              <option value="admin">Admin</option>
-            </select>
-          </div>
-
           <button type="submit" className="auth-button">
             Register
           </button>
@@ -216,5 +203,3 @@ const Register = () => {
 };
 
 export default Register;
-
-
