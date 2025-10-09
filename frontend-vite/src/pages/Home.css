@@ -1,0 +1,566 @@
+.home-container {
+  min-height: 100vh;
+  height: auto;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6rem 2rem 2rem 2rem;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  position: relative;
+  overflow-x: hidden;
+  box-sizing: border-box;
+}
+
+.home-container::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="rgba(255,255,255,0.05)" d="M0,96L48,112C96,128,192,160,288,160C384,160,480,128,576,122.7C672,117,768,139,864,138.7C960,139,1056,117,1152,101.3C1248,85,1344,75,1392,69.3L1440,64L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>')
+    no-repeat bottom;
+  background-size: cover;
+  pointer-events: none;
+}
+
+.home-content {
+  max-width: 1200px;
+  width: 100%;
+  text-align: center;
+  position: relative;
+  z-index: 1;
+  animation: fadeInUp 0.8s ease-out;
+  margin: 0 auto;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.home-title {
+  font-size: 3.5rem;
+  font-weight: bold;
+  color: white;
+  margin-bottom: 1.5rem;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+  line-height: 1.2;
+}
+
+.home-description {
+  font-size: 1.4rem;
+  color: rgba(255, 255, 255, 0.95);
+  margin-bottom: 4rem;
+  line-height: 1.8;
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0 1rem;
+}
+
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+  margin-bottom: 4rem;
+  width: 100%;
+}
+
+.feature-card {
+  background-color: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  padding: 2.5rem 1.5rem;
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  transition: all 0.3s ease;
+  cursor: default;
+  min-height: 250px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.feature-card:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+  background-color: rgba(255, 255, 255, 0.15);
+  border-color: rgba(255, 255, 255, 0.4);
+}
+
+/* Staggered animation for feature cards */
+.feature-card:nth-child(1) {
+  animation: fadeInUp 0.6s ease-out 0.1s both;
+}
+
+.feature-card:nth-child(2) {
+  animation: fadeInUp 0.6s ease-out 0.2s both;
+}
+
+.feature-card:nth-child(3) {
+  animation: fadeInUp 0.6s ease-out 0.3s both;
+}
+
+.feature-card:nth-child(4) {
+  animation: fadeInUp 0.6s ease-out 0.4s both;
+}
+
+.feature-icon {
+  font-size: clamp(2.5rem, 5vw, 3rem);
+  margin-bottom: 1rem;
+  display: inline-block;
+  transition: transform 0.3s ease;
+}
+
+.feature-card:hover .feature-icon {
+  transform: scale(1.1) rotate(5deg);
+}
+
+.feature-card h3 {
+  color: white;
+  font-size: clamp(1.1rem, 2.5vw, 1.25rem);
+  margin-bottom: 0.75rem;
+  font-weight: 600;
+}
+
+.feature-card p {
+  color: rgba(255, 255, 255, 0.85);
+  font-size: clamp(0.9rem, 2vw, 0.95rem);
+  line-height: 1.6;
+  margin: 0;
+}
+
+.home-actions {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  animation: fadeInUp 0.8s ease-out 0.5s both;
+}
+
+.home-button {
+  padding: 1.2rem 3rem;
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1.2rem;
+  transition: all 0.3s ease;
+  display: inline-block;
+  position: relative;
+  overflow: hidden;
+  min-width: 180px;
+  text-align: center;
+}
+
+.home-button::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.3);
+  transform: translate(-50%, -50%);
+  transition: width 0.6s, height 0.6s;
+}
+
+.home-button:hover::before {
+  width: 300px;
+  height: 300px;
+}
+
+.home-button span {
+  position: relative;
+  z-index: 1;
+}
+
+.home-button.primary {
+  background-color: white;
+  color: #646cff;
+  box-shadow: 0 4px 15px rgba(255, 255, 255, 0.2);
+}
+
+.home-button.primary:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(255, 255, 255, 0.4);
+  background-color: #f8f8ff;
+}
+
+.home-button.primary:active {
+  transform: translateY(-1px);
+}
+
+.home-button.secondary {
+  background-color: transparent;
+  color: white;
+  border: 2px solid white;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.home-button.secondary:hover {
+  background-color: white;
+  color: #646cff;
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(255, 255, 255, 0.3);
+}
+
+.home-button.secondary:active {
+  transform: translateY(-1px);
+}
+
+/* Large Desktop */
+@media (min-width: 1920px) {
+  .home-content {
+    max-width: 1400px;
+  }
+
+  .home-title {
+    font-size: 4rem;
+  }
+
+  .home-description {
+    font-size: 1.5rem;
+  }
+
+  .features-grid {
+    gap: 2.5rem;
+  }
+
+  .feature-card {
+    padding: 3rem 2rem;
+    min-height: 280px;
+  }
+}
+
+/* Desktop */
+@media (max-width: 1440px) {
+  .home-title {
+    font-size: 3rem;
+  }
+
+  .home-description {
+    font-size: 1.3rem;
+  }
+}
+
+/* Tablet Landscape */
+@media (max-width: 1024px) {
+  .home-container {
+    padding: 5rem 1.5rem 2rem 1.5rem;
+    min-height: 100vh;
+  }
+
+  .home-title {
+    font-size: 2.5rem;
+  }
+
+  .home-description {
+    font-size: 1.2rem;
+    margin-bottom: 3rem;
+  }
+
+  .features-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+    margin-bottom: 3rem;
+  }
+
+  .feature-card {
+    min-height: 220px;
+    padding: 2rem 1.5rem;
+  }
+
+  .home-button {
+    padding: 1rem 2.5rem;
+    font-size: 1.1rem;
+    min-width: 160px;
+  }
+}
+
+/* Tablet Portrait & Mobile Landscape */
+@media (max-width: 768px) {
+  .home-container {
+    min-height: 100vh;
+    padding: 4rem 1.5rem 2rem 1.5rem;
+  }
+
+  .home-content {
+    padding: 0;
+    width: 100%;
+  }
+
+  .home-title {
+    font-size: 2.2rem;
+    margin-bottom: 1.2rem;
+  }
+
+  .home-description {
+    font-size: 1.1rem;
+    margin-bottom: 2.5rem;
+    padding: 0 0.5rem;
+  }
+
+  .features-grid {
+    grid-template-columns: 1fr;
+    gap: 1.2rem;
+    margin-bottom: 2.5rem;
+  }
+
+  .feature-card {
+    padding: 2rem 1.5rem;
+    min-height: auto;
+  }
+
+  .feature-card:hover {
+    transform: translateY(-4px) scale(1.01);
+  }
+
+  .home-actions {
+    gap: 1rem;
+  }
+
+  .home-button {
+    padding: 1rem 2.5rem;
+    font-size: 1.1rem;
+    min-width: 160px;
+  }
+}
+
+/* Mobile Portrait */
+@media (max-width: 480px) {
+  .home-container {
+    min-height: 100vh;
+    padding: 3rem 1rem 2rem 1rem;
+    display: flex;
+    align-items: center;
+  }
+
+  .home-content {
+    width: 100%;
+  }
+
+  .home-title {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+    padding: 0;
+  }
+
+  .home-description {
+    font-size: 1rem;
+    margin-bottom: 2rem;
+    padding: 0;
+    line-height: 1.6;
+  }
+
+  .features-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    margin-bottom: 2rem;
+  }
+
+  .feature-card {
+    padding: 1.5rem 1.2rem;
+    min-height: auto;
+  }
+
+  .feature-icon {
+    font-size: 2.5rem;
+    margin-bottom: 0.8rem;
+  }
+
+  .feature-card h3 {
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .feature-card p {
+    font-size: 0.9rem;
+    line-height: 1.5;
+  }
+
+  .home-actions {
+    flex-direction: column;
+    width: 100%;
+    gap: 1rem;
+    padding: 0;
+  }
+
+  .home-button {
+    width: 100%;
+    padding: 1rem 2rem;
+    font-size: 1.1rem;
+    min-width: 100%;
+  }
+
+  .home-button.primary,
+  .home-button.secondary {
+    min-width: 100%;
+  }
+}
+
+/* Extra Small Mobile */
+@media (max-width: 360px) {
+  .home-container {
+    padding: 2.5rem 0.8rem 1.5rem 0.8rem;
+  }
+
+  .home-title {
+    font-size: 1.6rem;
+  }
+
+  .home-description {
+    font-size: 0.95rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .features-grid {
+    gap: 0.8rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .feature-card {
+    padding: 1.2rem 1rem;
+  }
+
+  .feature-icon {
+    font-size: 2.2rem;
+  }
+
+  .feature-card h3 {
+    font-size: 1rem;
+  }
+
+  .feature-card p {
+    font-size: 0.85rem;
+  }
+
+  .home-button {
+    padding: 0.9rem 1.5rem;
+    font-size: 1rem;
+  }
+}
+
+/* Landscape Orientation on Mobile/Tablet */
+@media (max-height: 700px) and (orientation: landscape) {
+  .home-container {
+    min-height: 100vh;
+    padding: 2rem 2rem 1rem 2rem;
+  }
+
+  .home-title {
+    font-size: 2rem;
+    margin-bottom: 0.8rem;
+  }
+
+  .home-description {
+    font-size: 1rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .features-grid {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .feature-card {
+    padding: 1.2rem 0.8rem;
+    min-height: auto;
+  }
+
+  .feature-icon {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .feature-card h3 {
+    font-size: 0.95rem;
+    margin-bottom: 0.4rem;
+  }
+
+  .feature-card p {
+    font-size: 0.8rem;
+  }
+
+  .home-actions {
+    gap: 1rem;
+  }
+
+  .home-button {
+    padding: 0.8rem 2rem;
+    font-size: 1rem;
+  }
+}
+
+/* Very Short Landscape (phones) */
+@media (max-height: 500px) and (orientation: landscape) {
+  .home-container {
+    padding: 1.5rem 1.5rem 1rem 1.5rem;
+  }
+
+  .home-title {
+    font-size: 1.6rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .home-description {
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+  }
+
+  .features-grid {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0.8rem;
+    margin-bottom: 1rem;
+  }
+
+  .feature-card {
+    padding: 1rem 0.6rem;
+  }
+
+  .feature-icon {
+    font-size: 1.8rem;
+  }
+}
+
+/* High DPI displays */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  .home-button {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
+
+/* Reduced motion for accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .home-content,
+  .feature-card,
+  .home-actions,
+  .home-button,
+  .feature-icon {
+    animation: none;
+    transition: none;
+  }
+
+  .feature-card:hover,
+  .home-button:hover {
+    transform: none;
+  }
+}
+
+/* Dark mode support (if system preference) */
+@media (prefers-color-scheme: dark) {
+  .home-container {
+    background: linear-gradient(135deg, #4a5568 0%, #2d3748 100%);
+  }
+}
